@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="4">
+ <tileset firstgid="1" source="../tuile/collisionSet.tsx"/>
+ <tileset firstgid="26" source="../tuile/herbe.tsx"/>
+ <tileset firstgid="44" source="../tuile/tuileSet.tsx"/>
+ <tileset firstgid="444" source="../tuile/eauHerbe.tsx"/>
+ <tileset firstgid="462" name="hole" tilewidth="32" tileheight="32" tilecount="18" columns="3">
+  <image source="../image/hole.png" width="96" height="192"/>
+ </tileset>
+ <layer name="collision" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+NlYGBgoxLmA2JOBuoBjlHzsAJGKptHLCDGPG4gZgdiHiqZB1LDSIQ6Ys0TYICkVUEqmUcKGDVv1LyBNk+IAZI/qYGFgRgAauX6v0AGAAA=
+  </data>
+ </layer>
+ <layer name="sol" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA1NhYGBQoTLWooJ+fGZoA3ETGh9ZfRMDYXcQciNMXpMI/ZT6F5/ZTWhyIPfsYcQeJtSMF20y9R0Cuu0wEB9hxB12pOCjQHOOAfFxLH4mB58AmnMSiE/hMQ89zEkJQ/R4ICXsiAkvaqc1UjA14pOQ3wjlfVLCAV3NOUbscasFlRtMYT1UMAB9BmzAQAYAAA==
+  </data>
+ </layer>
+ <layer name="background" width="20" height="20">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMAuqAq0B8jYrmvQTiV1jEZzKSZ95fIP6HRXwtmeaNdAAA/jYFCEAGAAA=
+  </data>
+ </layer>
+ <layer name="foreground" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+ <objectgroup name="trigger" width="20" height="20">
+  <object id="1" name="tele1" type="teleport" x="64" y="512" width="32" height="32">
+   <properties>
+    <property name="dest-x" type="float" value="480"/>
+    <property name="dest-y" type="float" value="470"/>
+   </properties>
+  </object>
+  <object id="2" name="tele2" type="teleport" x="480" y="480" width="32" height="32">
+   <properties>
+    <property name="dest-x" type="float" value="60"/>
+    <property name="dest-y" type="float" value="480"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="20" height="20" tilewidth="32" tileheight="32" nextobjectid="2">
+ <tileset firstgid="1" source="../tuile/collisionSet.tsx"/>
+ <tileset firstgid="26" source="../tuile/tuileSet.tsx"/>
+ <tileset firstgid="426" source="../tuile/ciment.tsx"/>
+ <layer name="collision" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+NlYGBgoxLmA2JOBuoBjlHzRs0bNW/UvFHzqGaeEBCzUwkLAzEA2BPnC0AGAAA=
+  </data>
+ </layer>
+ <layer name="sol" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA62UXQqAMAyD3f1PI/jSejkRHMSY/og+BNzWflu62XUsy/qDdpKa60oxeWxFLjKYN8cOLOYxwxK/k+UBC8+vYiJe5BPjFavjlf0YKeN1fUR1VXXOahfdefX2lB/mucg7tV2a8wbxyHTB8/E8H/NwL2Qa8ar6RfM+7m9yp+8OT63xWbt3YsleXLfKG/+fmJdxKs+K3el5kec3ivrdV67ifenrzDsAF9JCLkAGAAA=
+  </data>
+ </layer>
+ <layer name="background" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA+NjZGDgpxIWAGIlIKYWUBk1b9S8ATRvyyB336h5o+aRap4ZEJtTCVsAMQAPFswoQAYAAA==
+  </data>
+ </layer>
+ <layer name="foreground" width="20" height="20" visible="0">
+  <data encoding="base64" compression="gzip">
+   H4sIAAAAAAAAA2NgGAWjYBSMglEwCkgHADV9EcVABgAA
+  </data>
+ </layer>
+ <objectgroup name="trigger" width="20" height="20">
+  <object id="1" name="porte_niveau1" type="change-map" x="608" y="288" width="32" height="32">
+   <properties>
+    <property name="dest-map" value="niveau_deux.tmx"/>
+    <property name="dest-x" type="float" value="150"/>
+    <property name="dest-y" type="float" value="150"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
