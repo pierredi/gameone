@@ -9,11 +9,8 @@ import repio.slick.Map;
 public class Player {
 
     private static String SKELETON = "map/perso/BODY_skeleton.png";
+    private static String PRINCESSE = "map/perso/princess.png";
     private static String AVENTURIER = "map/perso/sprite_character.png";
-    private static String BEE = "map/perso/bee.png";
-    private static String BAT = "map/perso/bat.png";
-    private static String SNAKE = "map/perso/snake.png";
-    private static String SLIME = "map/perso/slime.png";
 
     public Map map;
 
@@ -39,13 +36,7 @@ public class Player {
      */
     private Animation[] animations = new Animation[8];
 
-    private Animation[] abeille = new Animation[8];
-
     private Animation[] bat = new Animation[8];
-
-    private Animation[] serpent = new Animation[8];
-
-    private Animation[] slime = new Animation[8];
 
     public Player(Map map){
         this.map = map;
@@ -59,7 +50,7 @@ public class Player {
      * @param y position sur l'image
      * @return tableau de png represantant l'animation
      */
-    private Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
+    public Animation loadAnimation(SpriteSheet spriteSheet, int startX, int endX, int y) {
         Animation animation = new Animation();
         for (int x = startX; x < endX; x++) {
             animation.addFrame(spriteSheet.getSprite(x, y), 100);
@@ -67,93 +58,11 @@ public class Player {
         return animation;
     }
 
-    public void initBee() throws SlickException {
-        SpriteSheet spriteSheet = new SpriteSheet(BEE, 32, 32);
-        //position haut
-        this.abeille[0] = loadAnimation(spriteSheet,0,1,0);
-        //position droite
-        this.abeille[1] = loadAnimation(spriteSheet,0,1,1);
-        //position gauche
-        this.abeille[2] = loadAnimation(spriteSheet,0,1,2);
-        //position bas
-        this.abeille[3] = loadAnimation(spriteSheet,0,1,3);
-        //deplacement haut
-        this.abeille[4] = loadAnimation(spriteSheet,0,3,0);
-        //deplacement droite
-        this.abeille[5] = loadAnimation(spriteSheet,0,3,1);
-        //deplacement gauche
-        this.abeille[6] = loadAnimation(spriteSheet,0,3,2);
-        //deplacement bas
-        this.abeille[7] = loadAnimation(spriteSheet,0,3,3);
-
-    }
-
-    public void initSnake() throws SlickException {
-        SpriteSheet spriteSheet = new SpriteSheet(SNAKE, 32, 32);
-        //position haut
-        this.serpent[0] = loadAnimation(spriteSheet,0,1,0);
-        //position droite
-        this.serpent[1] = loadAnimation(spriteSheet,0,1,1);
-        //position gauche
-        this.serpent[2] = loadAnimation(spriteSheet,0,1,2);
-        //position bas
-        this.serpent[3] = loadAnimation(spriteSheet,0,1,3);
-        //deplacement haut
-        this.serpent[4] = loadAnimation(spriteSheet,0,3,0);
-        //deplacement droite
-        this.serpent[5] = loadAnimation(spriteSheet,0,3,1);
-        //deplacement gauche
-        this.serpent[6] = loadAnimation(spriteSheet,0,3,2);
-        //deplacement bas
-        this.serpent[7] = loadAnimation(spriteSheet,0,3,3);
-    }
-
-    public void initSlime() throws SlickException {
-        SpriteSheet spriteSheet = new SpriteSheet(SLIME, 32, 32);
-        //position haut
-        this.slime[0] = loadAnimation(spriteSheet,0,1,0);
-        //position droite
-        this.slime[1] = loadAnimation(spriteSheet,0,1,1);
-        //position gauche
-        this.slime[2] = loadAnimation(spriteSheet,0,1,2);
-        //position bas
-        this.slime[3] = loadAnimation(spriteSheet,0,1,3);
-        //deplacement haut
-        this.slime[4] = loadAnimation(spriteSheet,0,3,0);
-        //deplacement droite
-        this.slime[5] = loadAnimation(spriteSheet,0,3,1);
-        //deplacement gauche
-        this.slime[6] = loadAnimation(spriteSheet,0,3,2);
-        //deplacement bas
-        this.slime[7] = loadAnimation(spriteSheet,0,3,3);
-    }
-
-    public void initBat() throws SlickException {
-        SpriteSheet spriteSheet = new SpriteSheet(BAT, 32, 32);
-        //position haut
-        this.bat[0] = loadAnimation(spriteSheet,0,1,0);
-        //position droite
-        this.bat[1] = loadAnimation(spriteSheet,0,1,1);
-        //position gauche
-        this.bat[2] = loadAnimation(spriteSheet,0,1,2);
-        //position bas
-        this.bat[3] = loadAnimation(spriteSheet,0,1,3);
-        //deplacement haut
-        this.bat[4] = loadAnimation(spriteSheet,0,3,0);
-        //deplacement droite
-        this.bat[5] = loadAnimation(spriteSheet,0,3,1);
-        //deplacement gauche
-        this.bat[6] = loadAnimation(spriteSheet,0,3,2);
-        //deplacement bas
-        this.bat[7] = loadAnimation(spriteSheet,0,3,3);
-    }
-
     /**
      * initialisation du personnage
      * @throws SlickException exception levee
      */
     public void init() throws SlickException {
-        //SpriteSheet spriteSheet = new SpriteSheet(SKELETON, 64, 64);
         SpriteSheet spriteSheet = new SpriteSheet(AVENTURIER, 64, 64);
         //position haut
         this.animations[0] = loadAnimation(spriteSheet, 0, 1, 0);
@@ -171,10 +80,6 @@ public class Player {
         this.animations[6] = loadAnimation(spriteSheet, 1, 9, 2);
         //deplacement vers le haut
         this.animations[7] = loadAnimation(spriteSheet, 1, 9, 3);
-        initBee();
-        initBat();
-        initSnake();
-        initSlime();
     }
 
     public void render(Graphics graphics){
@@ -184,7 +89,6 @@ public class Player {
         //graphics.drawAnimation(animations[direction + (moving ? 4 : 0)], x - 32, y - 60);
         graphics.drawAnimation(animations[direction + (moving ? 4 : 0)], x - 32, y - 60);
     }
-
 
     private float getFuturX(int delta) {
         float futurX = this.x;

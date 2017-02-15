@@ -1,8 +1,7 @@
 package repio.main;
 
 import org.newdawn.slick.*;
-import repio.personnage.Player;
-import repio.personnage.PlayerController;
+import repio.personnage.*;
 import repio.slick.Camera;
 import repio.slick.Map;
 import repio.slick.TriggerController;
@@ -21,6 +20,12 @@ public class GameOne extends BasicGame{
     /** Joueur. */
     private Player player = new Player(this.map) ;
 
+    /** enemie. */
+    private Personnage bee = new Perso_Bee(this.map);
+    private Personnage snake = new Perso_Snake(this.map);
+    private Personnage slime = new Perso_Slime(this.map);
+    private Personnage bat = new Perso_Bat(this.map);
+
     /** Camera. */
     private Camera camera = new Camera(player);
 
@@ -31,7 +36,7 @@ public class GameOne extends BasicGame{
         new AppGameContainer(new GameOne(), 800, 600, false).start();
     }
 
-    public GameOne(){
+    private GameOne(){
         super("Video game version 1.0");
     }
 
@@ -41,7 +46,15 @@ public class GameOne extends BasicGame{
         //initialisation de la carte
         map = new Map();
         this.player.setMap(map);
+        this.bee.setMap(map);
+        this.snake.setMap(map);
+        this.slime.setMap(map);
+        this.bat.setMap(map);
         this.player.init();
+        this.bee.init();
+        this.snake.init();
+        this.slime.init();
+        this.bat.init();
         triggers.setPlayer(this.player);
         triggers.setMap(this.map);
         PlayerController controller = new PlayerController(this.player);
@@ -53,12 +66,16 @@ public class GameOne extends BasicGame{
      * update the game logic
      * @param container The game container
      * @param delta The amount of time since last update in milliseconds
-     * @throws SlickException
+     * @throws SlickException exception levée.
      */
     @Override
     public void update(GameContainer container, int delta) throws SlickException {
         triggers.updateTrigger();
         this.player.update(delta);
+        this.bee.update(delta);
+        this.snake.update(delta);
+        this.slime.update(delta);
+        this.bat.update(delta);
         this.camera.update(container);
     }
 
@@ -69,6 +86,10 @@ public class GameOne extends BasicGame{
         this.map.renderBackground();
         //mise a jour du joueur
         this.player.render(graphics);
+        this.bee.render(graphics);
+        this.snake.render(graphics);
+        this.slime.render(graphics);
+        this.bat.render(graphics);
         this.map.renderForeground();
     }
 
